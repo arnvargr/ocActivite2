@@ -1,4 +1,7 @@
-
+/* 
+OpenClassroom :  Dynamisez vos sites web avec JavaScript ! 
+TP 01 : Convertir un nombre en toutes lettres
+*/
 function num2Letters(number) {
 
 	if (isNaN(number) || number < 0 || 999 < number) {
@@ -21,11 +24,11 @@ function num2Letters(number) {
 
 	} else {
 
-		
+// Traitement des unités
 
 		unitsOut = (units === 1 && tens > 0 && tens !== 8 ? 'et-' : '') + units2Letters[units];
 
-
+// Traitement des dizaines
 
 		if (tens === 1 && units > 0) {
 
@@ -44,11 +47,13 @@ function num2Letters(number) {
 		}
 
 		tensOut += (units === 0 && tens === 8 ? 's' : '');
+        
+// Traitement des centaines
 
 	
 		hundredsOut = (hundreds > 1 ? units2Letters[hundreds] + '-' : '') + (hundreds > 0 ? 'cent' : '') + (hundreds > 1 && tens == 0 && units == 0 ? 's' : '');
 
-	
+// Retour du total
 
 		return hundredsOut + (hundredsOut && tensOut ? '-': '') + tensOut + (hundredsOut && unitsOut || tensOut && unitsOut ? '-': '') + unitsOut;
 	}
